@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Iterator;
 
 public class Cart {
-    private ArrayList<CartItem> cartItems = new ArrayList<>();
+    private List<CartItem> cartItems = new ArrayList<>();
 
     public void add(Product product, int quantity) {
         if (quantity > product.getQuantity()) {
@@ -69,7 +70,7 @@ public class Cart {
         return cartItems.isEmpty();
     }
 
-    public ArrayList<CartItem> getCartItems() {
+    public List<CartItem> getCartItems() {
         return cartItems;
     }
 }
