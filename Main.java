@@ -8,7 +8,7 @@ public class Main {
         }
 
         double balance = customer.getBalance();
-        double totalPrice = cart.getTotalPrice();
+        double subTotal = cart.getTotalPrice();
         double shippingFees = 0.0;
 
         // Check stock and expiration
@@ -35,7 +35,7 @@ public class Main {
             shippingFees = shippingService.getShippingFees();
         }
 
-        double totalAmount = totalPrice + shippingFees;
+        double totalAmount = subTotal + shippingFees;
         if (totalAmount > balance) {
             throw new IllegalStateException("Customer's balance is insufficient.");
         }
@@ -68,7 +68,7 @@ public class Main {
         }
 
         System.out.println("----------------------------");
-        System.out.printf("%-" + (maxNameWidth + 2) + "s %" + maxPriceWidth + ".2f\n", "Subtotal", totalPrice);
+        System.out.printf("%-" + (maxNameWidth + 2) + "s %" + maxPriceWidth + ".2f\n", "Subtotal", subTotal);
         System.out.printf("%-" + (maxNameWidth + 2) + "s %" + maxPriceWidth + ".2f\n", "Shipping", shippingFees);
         System.out.printf("%-" + (maxNameWidth + 2) + "s %" + maxPriceWidth + ".2f\n", "Amount", totalAmount);
 
