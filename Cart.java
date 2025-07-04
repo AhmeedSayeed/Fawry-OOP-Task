@@ -38,7 +38,7 @@ public class Cart {
                 return;
             }
         }
-        throw new IllegalArgumentException("Product not found in cart.");
+        throw new IllegalArgumentException(product.getName() + " Product not found in cart.");
     }
 
     // Decrease product quantity with some value (quantity parameter) and remove it safely by iterator if reached zero,

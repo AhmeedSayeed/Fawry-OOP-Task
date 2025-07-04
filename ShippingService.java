@@ -37,12 +37,12 @@ public class ShippingService {
                     names.get(i), weights.get(i));
         }
 
-        String totalStr = (totalWeight >= 1000)
+        String totalWeightStr = (totalWeight >= 1000)
                 ? String.format("%.2fkg", totalWeight / 1000)
                 : String.format("%.2fg", totalWeight);
 
         System.out.printf("%-" + (maxNameWidth + 2) + "s %" + maxWeightWidth + "s\n",
-                "Total package weight", totalStr);
+                "Total package weight", totalWeightStr);
     }
 
 
