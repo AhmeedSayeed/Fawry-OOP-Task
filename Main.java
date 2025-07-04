@@ -42,6 +42,7 @@ public class Main {
 
         if (!shippableProducts.isEmpty()) {
             shippingService.printShippingNotice();
+            System.out.println();
         }
 
         // Print receipt
@@ -90,7 +91,7 @@ public class Main {
             Cart cart1 = new Cart();
 
             Product cheese = new Product.ProductBuilder("Cheese", 100, 10)
-                    .setWeight(200.0) // 200g
+                    .setWeight(200.0)
                     .setExpiration(false)
                     .build();
 
@@ -151,7 +152,7 @@ public class Main {
         // SECTION 4 - Insufficient Balance
         try {
             System.out.println("===== SECTION 4: Insufficient Balance =====");
-            Customer customer4 = new Customer("Ali", 100); // Low balance
+            Customer customer4 = new Customer("Ali", 900); // Low balance
             Cart cart4 = new Cart();
 
             Product laptop = new Product.ProductBuilder("Laptop", 900, 3)
@@ -161,6 +162,8 @@ public class Main {
             cart4.add(laptop, 1); // 900
 
             checkout(customer4, cart4);
+            // Put shipping fees in consideration,
+            // so to make the payment successful customer balance should be at least 930.
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
