@@ -14,7 +14,7 @@ public class Product implements Shippable {
         this.expired = builder.expired;
         this.weight = builder.weight;
     }
-
+    
     public boolean isShippable() {
         return weight.orElse(0.0) >  0.0;
     }

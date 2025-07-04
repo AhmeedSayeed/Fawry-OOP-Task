@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ShippingService {
     private List<CartItem> products = new ArrayList<>();
-    private double shippingFees = 30.0; // Constant as it not mentioned in features
+    private final double shippingFees = 30.0; // Constant as it not mentioned in features
 
     public ShippingService(List<CartItem> products) {
         this.products = products;
