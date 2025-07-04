@@ -22,8 +22,8 @@ public class ShippingService {
 
             String name = cartItem.getQuantity() + "x " + product.getName();
             String weight = (totalProductWeight >= 1000)
-                    ? String.format("%.1fkg", totalProductWeight / 1000)
-                    : String.format("%.0fg", totalProductWeight);
+                    ? String.format("%.2fkg", totalProductWeight / 1000)
+                    : String.format("%.2fg", totalProductWeight);
 
             names.add(name);
             weights.add(weight);

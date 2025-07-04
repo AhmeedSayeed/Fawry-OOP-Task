@@ -16,7 +16,7 @@ public class Product implements Shippable {
     }
 
     public boolean isShippable() {
-        return weight.isPresent();
+        return weight.orElse(0.0) >  0.0;
     }
 
     public boolean isExpirable() {
@@ -73,7 +73,9 @@ public class Product implements Shippable {
         }
 
         public ProductBuilder setWeight(Double weight) {
-            this.weight = Optional.of(weight);
+            if(weight > 0.0) {
+                this.weight = Optional.of(weight);
+            }
             return this;
         }
 
