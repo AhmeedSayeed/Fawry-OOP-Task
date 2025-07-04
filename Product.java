@@ -59,7 +59,7 @@ public class Product implements Shippable {
 
     // Builder Pattern used to separate required and optional attributes,
     // making product creation cleaner and preventing unnecessary nulls in expiration and shipping (weight).
-    public class ProductBuilder {
+    public static class ProductBuilder {
         private String name;
         private double price;
         private int quantity;

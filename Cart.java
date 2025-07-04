@@ -7,13 +7,13 @@ public class Cart {
 
     public void add(Product product, int quantity) {
         if (quantity > product.getQuantity()) {
-            throw new IllegalArgumentException("Requested quantity exceeds available stock.");
+            throw new IllegalArgumentException(product.getName() + " Requested quantity exceeds available stock.");
         }
         for (CartItem cartItem : cartItems) {
             if(cartItem.getProduct().equals(product)) {
                 int newQuantity = cartItem.getQuantity() + quantity;
                 if (newQuantity > product.getQuantity()) {
-                    throw new IllegalArgumentException("Requested quantity exceeds available stock.");
+                    throw new IllegalArgumentException(product.getName() + " Requested quantity exceeds available stock.");
                 }
                 cartItem.setQuantity(cartItem.getQuantity() + quantity);
                 return;
@@ -32,7 +32,7 @@ public class Cart {
             if (cartItem.getProduct().equals(product)) {
                 int newQuantity = cartItem.getQuantity() + quantity;
                 if (newQuantity > product.getQuantity()) {
-                    throw new IllegalArgumentException("Requested quantity exceeds available stock.");
+                    throw new IllegalArgumentException(product.getName() + " Requested quantity exceeds available stock.");
                 }
                 cartItem.setQuantity(newQuantity);
                 return;
@@ -62,7 +62,7 @@ public class Cart {
                 return;
             }
         }
-        throw new IllegalArgumentException("Product not found in cart.");
+        throw new IllegalArgumentException(product.getName() + " Product not found in cart.");
     }
 
 
@@ -72,5 +72,13 @@ public class Cart {
 
     public List<CartItem> getCartItems() {
         return cartItems;
+    }
+
+    public double getTotalPrice() {
+        double totalPrice = 0.0;
+        for (CartItem cartItem : cartItems) {
+            totalPrice += cartItem.getProduct().getPrice() * cartItem.getQuantity();
+        }
+        return totalPrice;
     }
 }
